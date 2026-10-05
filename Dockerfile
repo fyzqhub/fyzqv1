@@ -202,6 +202,7 @@ RUN python3 -m pip install --no-cache-dir \
 
 
 
+
 # 安装 ros2 功能包
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-foxy-xacro \
@@ -237,3 +238,4 @@ RUN chmod +x /ros_entrypoint.sh
 
 ENTRYPOINT ["/ros_entrypoint.sh"]
 CMD ["bash"]
+
