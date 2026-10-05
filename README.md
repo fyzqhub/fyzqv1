@@ -6,13 +6,11 @@ fyzqv1
 
 Dockerhub
 
-https://hub.docker.com/repositories/fyzqshuai
-
-fyzqshuai/fyzqos_ros2-foxy
+https://hub.docker.com/repositories/fyzq
 
 
 
-docker pull fyzqshuai/fyzqos_ros2-foxy:latest
+docker pull fyzq/fyzv1:latest
 
 
 
