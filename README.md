@@ -6,7 +6,7 @@ fyzqv1
 
 Dockerhub
 
-[[https://hub.docker.com/repositories/fyzq](https://hub.docker.com/repository/docker/fyzq/fyzqv1/general)](https://hub.docker.com/repository/docker/fyzq/fyzqv1/general)
+https://hub.docker.com/repository/docker/fyzq/fyzqv1/general
 
 
 
