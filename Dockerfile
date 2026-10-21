@@ -1,3 +1,4 @@
+# 基础镜像为 universe-devel-cuda-jazzy 最新版本
 ARG BASE_IMAGE=ghcr.io/autowarefoundation/autoware:universe-devel-cuda-jazzy
 FROM ${BASE_IMAGE}
 
@@ -71,7 +72,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     nlohmann-json3-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-    
+
 # 安装 Rosmaster_Lib 驱动库
 COPY Rosmaster_Lib_3.3.9 /tmp/Rosmaster_Lib_3.3.9
 RUN python3 -m pip install /tmp/Rosmaster_Lib_3.3.9 && \
@@ -83,8 +84,8 @@ RUN python3 -m pip install /tmp/Speech_Lib_0.0.1 && \
     rm -rf /tmp/Speech_Lib_0.0.1
 
 # pip 安装 apt 里没有的
-# Jupyter 一套（apt 无 jupyterlab，三者版本相互依赖，统一 pip）
-RUN python3 -m pip install \
+# Jupyter 相关的3个，apt 无 jupyterlab，三者版本相互依赖，统一用 pip 安装，--ignore-installed是因为 apt 装的依赖（如 typing_extensions）没有卸载记录，pip 无法卸载，直接覆盖安装
+RUN python3 -m pip install --ignore-installed \
     jupyterlab \
     ipywidgets \
     jupyterlab_widgets
@@ -113,5 +114,4 @@ COPY ./entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["bash"]
-
 
