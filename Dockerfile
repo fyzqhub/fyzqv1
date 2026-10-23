@@ -1,5 +1,5 @@
-# 基础镜像为 universe-devel-cuda-jazzy 最新版本
-ARG BASE_IMAGE=ghcr.io/autowarefoundation/autoware:universe-devel-cuda-jazzy
+# 基础镜像为 universe-devel-cuda-jazzy，固定版本并按需更新
+ARG BASE_IMAGE=ghcr.io/autowarefoundation/autoware:universe-devel-cuda-jazzy-20261021
 FROM ${BASE_IMAGE}
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -9,6 +9,8 @@ ENV PIP_BREAK_SYSTEM_PACKAGES=1
 
 # 以 root 安装
 USER root
+# 补充环境变量，避免容器运行时 getpass 等读到基础镜像的 USERNAME=aw
+ENV USER=root LOGNAME=root
 
 # 设置上海时区
 RUN ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
