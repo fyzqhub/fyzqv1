@@ -9,8 +9,8 @@ ENV PIP_BREAK_SYSTEM_PACKAGES=1
 
 # 以 root 安装
 USER root
-# 补充环境变量，避免容器运行时 getpass 等读到基础镜像的 USERNAME=aw
-ENV USER=root LOGNAME=root
+# 更改环境变量
+ENV USER=root LOGNAME=root USERNAME=root
 
 # 设置上海时区
 RUN ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
