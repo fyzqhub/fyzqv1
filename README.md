@@ -12,7 +12,7 @@ dockerhub
 
 https://hub.docker.com/repository/docker/fyzq/fyzqv1/general
 
-docker pull fyzq/fyzv1:latest
+docker pull fyzq/fyzqv1:latest
 
 
 
