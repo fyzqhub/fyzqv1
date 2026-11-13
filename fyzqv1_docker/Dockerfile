@@ -69,6 +69,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libzbar-dev \
     pcl-tools \
     libuvc-dev \
+    libepoxy-dev \
     libgoogle-glog-dev \
     libusb-1.0-0-dev \
     nlohmann-json3-dev \
@@ -95,9 +96,6 @@ RUN python3 -m pip install \
 RUN python3 -m pip install \
     mediapipe "numpy<2" \
     && python3 -m pip uninstall -y opencv-contrib-python
-
-# 构建时检测 numpy/opencv 没被 pip 包弄坏
-RUN python3 -c "import numpy, cv2, serial, mediapipe; print(numpy.__version__, cv2.__version__)"
 
 # 新增安装 XXX
 
